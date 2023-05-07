@@ -1,0 +1,14 @@
+{
+    "nrf-connect.topdir": "${nrf-connect.sdk:2.1.2}",
+    "nrf-connect.toolchain.path": "${nrf-connect.toolchain:2.1.2}",
+    "nrf-connect.applications": [
+        "c:\\Users\\david\\Documents\\universidade\\SOTR\\P\\Lab03\\distance-sensor",
+        "${workspaceFolder}"
+    ],
+    "files.associations": {
+        "timing.h": "c",
+        "__assert.h": "c",
+        "rand32.h": "c",
+        "gpio.h": "c"
+    }
+}

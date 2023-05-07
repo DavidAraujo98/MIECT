@@ -1,0 +1,126 @@
+:root{
+  --right-pink: #E91D63;
+  --elect-green: #0090AC;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+body {
+  color: #666666;
+  font-weight: 300 !important;
+}
+
+.bg-light{
+  background-color: #EEEEEE !important;
+}
+
+.green{
+  color: var(--elect-green) !important;
+}
+
+.pink{
+  color: var(--right-pink) !important;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
+  font-weight: 300 !important;
+  color: var(--elect-green);
+}
+
+.nav-link{
+  font-weight: 300;
+  color: var(--elect-green) !important;
+}
+
+.navbar-nav .nav-link.active, .navbar-nav .show>.nav-link{
+  font-weight: bold;
+}
+
+.area-pink{
+  color: var(--right-pink) !important;
+  background-color: #E91D6330 !important;
+}
+
+.btn.area-pink:hover{
+  background-color: #E91D6310 !important;
+}
+
+.area-green{
+  color: var(--elect-green) !important;
+  background-color: #0090AC30 !important;
+}
+
+.btn.area-green:hover{
+  background-color: #0090AC10 !important;
+}
+
+.btn{
+  border: none;
+}
+
+.btn.btn-right{
+  color:white;
+  background-color: var(--right-pink) !important;
+}
+
+.btn.btn-right.active{
+  color: var(--elect-green) !important;
+  background-color: #E91D6380 !important;
+}
+
+.btn.btn-right:hover{
+  color: var(--elect-green) !important;
+  background-color: #E91D6380 !important;
+}
+
+.btn.btn-elect{
+  color: white;
+  background-color: var(--elect-green) !important;
+}
+
+.btn.btn-elect:hover{
+  color: var(--right-pink) !important;
+  background-color: #0090AC80 !important;
+}
+
+.btn.btn-elect.active{
+  color: var(--right-pink) !important;
+  background-color: #0090AC80 !important;
+}

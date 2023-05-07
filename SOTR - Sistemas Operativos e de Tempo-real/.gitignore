@@ -1,0 +1,7 @@
+P/Lab03/nRF52840DKDemoCode/
+P/Lab03/t3-distance-sensor/build/
+*build/
+*~
+*.cmake
+*.o
+*images/
