@@ -1,3 +1,6 @@
 [submodule "SOTR - Sistemas Operativos e de Tempo-real/Project/zephyr-realtime-image-processing"]
 	path = SOTR - Sistemas Operativos e de Tempo-real/Project/zephyr-realtime-image-processing
 	url = https://github.com/DavidAraujo98/zephyr-realtime-image-processing.git
+[submodule "SO - Sistemas de Operacao/Project/somm22-23"]
+	path = SO - Sistemas de Operacao/Project/somm22-23
+	url = https://github.com/DavidAraujo98/somm22-23.git
