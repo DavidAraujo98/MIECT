@@ -1,0 +1,3 @@
+[submodule "SOTR - Sistemas Operativos e de Tempo-real/Project/zephyr-realtime-image-processing"]
+	path = SOTR - Sistemas Operativos e de Tempo-real/Project/zephyr-realtime-image-processing
+	url = https://github.com/DavidAraujo98/zephyr-realtime-image-processing.git

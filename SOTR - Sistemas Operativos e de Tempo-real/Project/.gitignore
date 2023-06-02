@@ -1,6 +1,0 @@
-.vscode
-*~
-/src/imgProc/imgProcAlg
-*.out
-*.o
-.VSCodeCounter
