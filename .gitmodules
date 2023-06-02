@@ -4,3 +4,30 @@
 [submodule "SO - Sistemas de Operacao/Project/somm22-23"]
 	path = SO - Sistemas de Operacao/Project/somm22-23
 	url = https://github.com/DavidAraujo98/somm22-23.git
+[submodule "SIO - Seguranca Informatica em Organizacoes/Project-3/corporate-bug-hunting"]
+	path = SIO - Seguranca Informatica em Organizacoes/Project-3/corporate-bug-hunting
+	url = https://github.com/DavidAraujo98/corporate-bug-hunting.git
+[submodule "SIO - Seguranca Informatica em Organizacoes/Project-2/echap-password-manager"]
+	path = SIO - Seguranca Informatica em Organizacoes/Project-2/echap-password-manager
+	url = https://github.com/DavidAraujo98/echap-password-manager.git
+[submodule "SIO - Seguranca Informatica em Organizacoes/Project-1/vulnerable-vs-secure"]
+	path = SIO - Seguranca Informatica em Organizacoes/Project-1/vulnerable-vs-secure
+	url = https://github.com/DavidAraujo98/vulnerable-vs-secure.git
+[submodule "RC1 - Redes de Comunicacao 01/Project/gns3-basic-network"]
+	path = RC1 - Redes de Comunicacao 01/Project/gns3-basic-network
+	url = https://github.com/DavidAraujo98/gns3-basic-network.git
+[submodule "IHC - Interacao Humano Computador/Project/elect-right"]
+	path = IHC - Interacao Humano Computador/Project/elect-right
+	url = https://github.com/DavidAraujo98/elect-right.git
+[submodule "IA - Inteligencia Artificial/Project/rush-hour-ai-agent"]
+	path = IA - Inteligencia Artificial/Project/rush-hour-ai-agent
+	url = https://github.com/DavidAraujo98/rush-hour-ai-agent.git
+[submodule "CM - Comunicacoes Moveis/Project/wifi-mesh-analysis"]
+	path = CM - Comunicacoes Moveis/Project/wifi-mesh-analysis
+	url = https://github.com/DavidAraujo98/wifi-mesh-analysis.git
+[submodule "BD - Bases de Dados/Project/festival-planner"]
+	path = BD - Bases de Dados/Project/festival-planner
+	url = https://github.com/DavidAraujo98/festival-planner.git
+[submodule "AS - Analise de Sistemas/Project/cowork-club"]
+	path = AS - Analise de Sistemas/Project/cowork-club
+	url = https://github.com/DavidAraujo98/cowork-club.git
