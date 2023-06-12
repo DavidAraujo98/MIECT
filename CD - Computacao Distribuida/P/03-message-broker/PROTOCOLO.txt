@@ -1,0 +1,69 @@
+# Presentation
+
+`{"method": "PRES", "serialization": value}`
+
+# Subscription
+
+## JSON & Pickle
+`{"method": "SUB", "topic": value}`
+
+## XML
+``` XML
+<data>
+    <method>SUB</method>
+    <topic>value</topic>
+</data>
+```
+
+# Topics list
+
+## JSON & Pickle
+`{"method": "TOPS"}`
+
+## XML
+``` XML
+<data>
+    <method>TOPS</method>
+</data>
+```
+
+# Cancellation
+
+## JSON & Pickle
+`{"method": "CANC", "topic": value}`
+
+## XML
+``` XML
+<data>
+    <method>CANC</method>
+    <topic>value</topic>
+</data>
+```
+
+# Publish
+
+## JSON & Pickle
+`{"method": "PUB", "topic": value, "message": value}`
+
+## XML
+``` XML
+<data>
+    <method>PUB</method>
+    <topic>value</topic>
+    <message>value</message>
+</data>
+```
+
+# Server reply
+
+## JSON & Pickle
+`{"method": "REP", "topic": value, "message": value}`
+
+## XML
+``` XML
+<data>
+    <method>REP</method>
+    <topic>value</topic>
+    <message>value</message>
+</data>
+```

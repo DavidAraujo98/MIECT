@@ -31,3 +31,6 @@
 [submodule "AS - Analise de Sistemas/Project/cowork-club"]
 	path = AS - Analise de Sistemas/Project/cowork-club
 	url = https://github.com/DavidAraujo98/cowork-club.git
+[submodule "CD - Computacao Distribuida/Project/distributed-music-processor"]
+	path = CD - Computacao Distribuida/Project/distributed-music-processor
+	url = git@github.com:DavidAraujo98/distributed-music-processor.git
