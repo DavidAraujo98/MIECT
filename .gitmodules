@@ -34,3 +34,6 @@
 [submodule "CD - Computacao Distribuida/Project/distributed-music-processor"]
 	path = CD - Computacao Distribuida/Project/distributed-music-processor
 	url = git@github.com:DavidAraujo98/distributed-music-processor.git
+[submodule "C - Compiladores/Project/dimana"]
+	path = C - Compiladores/Project/dimana
+	url = git@github.com:DavidAraujo98/dimana.git
