@@ -1,0 +1,258 @@
+firewall {
+    all-ping enable
+    broadcast-ping disable
+    config-trap disable
+    ipv6-receive-redirects disable
+    ipv6-src-route disable
+    ip-src-route disable
+    log-martians enable
+    name DMZ-EXC {
+        default-action drop
+        rule 10 {
+            action accept
+            destination {
+                port http,domain
+            }
+            protocol udp
+        }
+        rule 11 {
+            action accept
+            destination {
+                port http,domain
+            }
+            protocol tcp
+        }
+    }
+    name DMZ-OUT {
+        default-action drop
+        rule 10 {
+            action accept
+            state {
+                established enable
+                related enable
+            }
+        }
+    }
+    name DMZ-RES {
+        default-action drop
+        rule 10 {
+            action accept
+            destination {
+                port 22,443,21,53
+            }
+            protocol udp
+        }
+        rule 11 {
+            action accept
+            destination {
+                port 22,443,21,53
+            }
+            protocol tcp
+        }
+    }
+    name FITO {
+        default-action drop
+        rule 10 {
+            action accept
+            destination {
+                port 5000-6000
+            }
+            protocol udp
+        }
+    }
+    name FOTI {
+        default-action drop
+        rule 10 {
+            action accept
+            state {
+                established enable
+                related enable
+            }
+        }
+    }
+    receive-redirects disable
+    send-redirects enable
+    source-validation disable
+    syn-cookies enable
+    twa-hazards-protection disable
+}
+interfaces {
+    ethernet eth0 {
+        address 10.3.0.2/30
+        duplex auto
+        hw-id 08:00:27:36:81:71
+        smp-affinity auto
+        speed auto
+    }
+    ethernet eth1 {
+        address 10.5.0.2/30
+        duplex auto
+        hw-id 08:00:27:7e:ef:bc
+        smp-affinity auto
+        speed auto
+    }
+    ethernet eth2 {
+        address 10.4.2.2/30
+        duplex auto
+        hw-id 08:00:27:ad:c2:fb
+        smp-affinity auto
+        speed auto
+    }
+    ethernet eth3 {
+        address 10.6.2.2/30
+        duplex auto
+        hw-id 08:00:27:87:a1:01
+        smp-affinity auto
+        speed auto
+    }
+    ethernet eth4 {
+        address 7.7.7.1/24
+        duplex auto
+        hw-id 08:00:27:98:b4:e8
+        smp-affinity auto
+        speed auto
+    }
+    ethernet eth5 {
+        duplex auto
+        hw-id 08:00:27:07:50:08
+        smp-affinity auto
+        speed auto
+    }
+    loopback lo {
+    }
+}
+nat {
+    source {
+        rule 10 {
+            outbound-interface eth1
+            source {
+                address 10.0.0.0/8
+            }
+            translation {
+                address 192.1.0.1-192.1.0.10
+            }
+        }
+        rule 11 {
+            outbound-interface eth3
+            source {
+                address 10.0.0.0/8
+            }
+            translation {
+                address 192.1.0.1-192.1.0.10
+            }
+        }
+    }
+}
+protocols {
+    static {
+        route 0.0.0.0/0 {
+            next-hop 10.5.0.1 {
+            }
+            next-hop 10.6.2.1 {
+            }
+        }
+        route 7.7.7.0/24 {
+            next-hop 7.7.7.1 {
+            }
+        }
+        route 10.2.2.0/24 {
+            next-hop 10.3.0.1 {
+            }
+        }
+    }
+}
+service {
+    ssh {
+        access-control {
+            allow {
+                user vyos
+            }
+        }
+        port 22
+    }
+}
+system {
+    config-management {
+        commit-revisions 100
+    }
+    console {
+        device ttyS0 {
+            speed 9600
+        }
+    }
+    host-name vyos
+    login {
+        user vyos {
+            authentication {
+                encrypted-password ****************
+                plaintext-password ****************
+            }
+            level admin
+        }
+    }
+    ntp {
+        server 0.pool.ntp.org {
+        }
+        server 1.pool.ntp.org {
+        }
+        server 2.pool.ntp.org {
+        }
+    }
+    syslog {
+        global {
+            facility all {
+                level info
+            }
+            facility protocols {
+                level debug
+            }
+        }
+    }
+    time-zone UTC
+}
+zone-policy {
+    zone DMZ {
+        default-action drop
+        from INSIDE {
+            firewall {
+                name DMZ-RES
+            }
+        }
+        from OUTSIDE {
+            firewall {
+                name DMZ-EXC
+            }
+        }
+        interface eth4
+    }
+    zone INSIDE {
+        default-action drop
+        from DMZ {
+            firewall {
+                name DMZ-OUT
+            }
+        }
+        from OUTSIDE {
+            firewall {
+                name FOTI
+            }
+        }
+        interface eth0
+        interface eth2
+    }
+    zone OUTSIDE {
+        default-action drop
+        from DMZ {
+            firewall {
+                name DMZ-OUT
+            }
+        }
+        from INSIDE {
+            firewall {
+                name FITO
+            }
+        }
+        interface eth1
+        interface eth3
+    }
+}

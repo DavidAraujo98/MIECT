@@ -1,0 +1,120 @@
+high-availability {
+    vrrp {
+        group LBA {
+            interface eth3
+            rfc3768-compatibility
+            virtual-address 192.168.100.1/24
+            vrid 10
+        }
+        sync-group LBA {
+            member LBA
+        }
+    }
+}
+interfaces {
+    ethernet eth0 {
+        address 10.3.0.1/30
+        duplex auto
+        hw-id 08:00:27:f7:ac:11
+        smp-affinity auto
+        speed auto
+    }
+    ethernet eth1 {
+        address 10.1.1.11/30
+        duplex auto
+        hw-id 08:00:27:c4:f4:83
+        smp-affinity auto
+        speed auto
+    }
+    ethernet eth2 {
+        address 10.3.2.1/30
+        duplex auto
+        hw-id 08:00:27:a5:b3:51
+        smp-affinity auto
+        speed auto
+    }
+    ethernet eth3 {
+        address 3.3.3.2/30
+        duplex auto
+        hw-id 08:00:27:02:e9:7a
+        smp-affinity auto
+        speed auto
+    }
+    ethernet eth4 {
+        duplex auto
+        hw-id 08:00:27:9d:7f:02
+        smp-affinity auto
+        speed auto
+    }
+    ethernet eth5 {
+        duplex auto
+        hw-id 08:00:27:91:92:de
+        smp-affinity auto
+        speed auto
+    }
+    loopback lo {
+    }
+}
+load-balancing {
+    wan {
+        disable-source-nat
+        interface-health eth0 {
+            failure-count 1
+            nexthop 10.3.0.2
+            success-count 1
+        }
+        interface-health eth2 {
+            failure-count 1
+            nexthop 10.3.2.2
+            success-count 1
+        }
+        rule 1 {
+            inbound-interface eth1
+            interface eth0 {
+                weight 1
+            }
+            interface eth2 {
+                weight 1
+            }
+            protocol all
+        }
+        sticky-connections {
+            inbound
+        }
+    }
+}
+protocols {
+    static {
+        route 0.0.0.0/0 {
+            next-hop 10.3.0.2 {
+            }
+            next-hop 10.3.2.2 {
+            }
+        }
+        route 7.7.7.0/24 {
+            next-hop 10.3.0.2 {
+            }
+        }
+        route 10.2.2.0/24 {
+            next-hop 10.1.1.10 {
+            }
+        }
+    }
+}
+service {
+    conntrack-sync {
+        accept-protocol tcp,udp,icmp
+        disable-external-cache
+        event-listen-queue-size 8
+        failover-mechanism {
+            vrrp {
+                sync-group LBA
+            }
+        }
+        interface eth3 {
+        }
+        mcast-group 225.0.0.50
+        sync-queue-size 1
+    }
+}
+system ...
