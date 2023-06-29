@@ -37,3 +37,6 @@
 [submodule "C - Compiladores/Project/dimana"]
 	path = C - Compiladores/Project/dimana
 	url = git@github.com:DavidAraujo98/dimana.git
+[submodule "RSA - Redes de Sistemas Autonomos/Project/fire-mesh"]
+	path = RSA - Redes de Sistemas Autonomos/Project/fire-mesh
+	url = git@github.com:davidjosearaujo/fire-mesh.git
